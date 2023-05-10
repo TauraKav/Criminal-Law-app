@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
+require("dotenv").config();
 
 const caseRouter = require("./routes/case");
 const criminalCodeArticleRouter = require("./routes/criminalCodeArticle");
@@ -19,9 +20,7 @@ app.use(criminalCodeArticleRouter);
 app.use(user);
 
 mongoose
-  .connect(
-    "mongodb+srv://Taura:taura1@cluster0.b9fybtx.mongodb.net/test"
-  )
+  .connect(process.env.MONGO_CONNECT)
   .then(() => {
     console.log("CONNECTED");
   })
@@ -29,6 +28,6 @@ mongoose
     console.log("err", err);
   });
 
-app.listen(8081, () => {
+app.listen(process.env.PORTO, () => {
   console.log("Your app is alive!!!!!");
 });

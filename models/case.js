@@ -5,8 +5,8 @@ const caseSchema = mongoose.Schema({
     courtDecisionDate: { type: Date, required: true },
     court: { type: String, required: true, min: 3 },
     contentText: { type: String, required: true, min: 3 },
-    creator: { userId },
-    article: { articleId },
+    creatorId: { type: String, required: true, min: 7 },
+    articleId: { type: String, required: true, min: 7 },
     id: { type: String, required: true, min: 7 },
 });
 
