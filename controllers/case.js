@@ -17,7 +17,7 @@ module.exports.INSERT_CASE = async (req, res) => {
       
     criminalCodeArticleModel.updateOne(
       { id: req.body.criminalCodeArticleId },
-      { $push: { articleId: addedCase.id } }
+      { $push: { casesId: addedCase.id } }
     ).exec();
   
 
